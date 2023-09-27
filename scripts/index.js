@@ -1,70 +1,67 @@
-const elemProjects = document.getElementById('project_content')
+const elemProjects = document.getElementById('project__content')
 
-const createImage = (projectImage)=> {
+const createImage = (projectImage, projectName) => {
+  const elemPicture = document.createElement('picture')
+  const elemImg = document.createElement('img')
 
-    const elemPicture = document.createElement('picture')
-    const elemImg = document.createElement('img')
-    elemImg.setAttribute('src',projectImage)
+  elemImg.setAttribute('src', projectImage)
+  elemImg.setAttribute('alt', 'Imagem de capa do projeto ' + projectName)
 
-        elemPicture.appendChild(elemImg)
+  elemPicture.appendChild(elemImg)
 
-        return elemPicture
+  return elemPicture
 }
 
-const createStrong = (projectName)=>{
-    const elemStrong = document.createElement('strong')
-    elemStrong.innerText = project.name
-    return elemStrong
+const createStrong = (projectName) => {
+  const elemStrong = document.createElement('strong')
+  elemStrong.innerText = projectName
+
+  return elemStrong
 }
 
-const createTags = (projecTags)=>{
-    const elemTags = document.createElement('div')
-        projectTags.forEach(tag =>{
-            const elemTag = document.createElement('span')
-            elemTag.innerText = tag
+const createTags = (projectTags) => {
+  const elemTags = document.createElement('div')
 
-            elemTags.appendChild(elemTag)
-        })
-        return elemTags
+  projectTags.forEach(tag => {
+    const elemTag = document.createElement('span')
+    elemTag.innerText = tag
 
+    elemTags.appendChild(elemTag)
+  })
+
+  return elemTags
 }
 
+const createProject = (project, index) => {
+  const elemProject = document.createElement('a')
 
+  elemProject.setAttribute('href', project.link)
+  elemProject.setAttribute('target', '_blank')
 
-const createProject = (project) => { const elemProject = document.createElement('a')
-        
-elemProject.setAttribute('href' , project.link)
-elemProject.setAttribute('target' , '_blank')
+  elemProject.setAttribute('data-aos', 'zoom-in-up')
+  elemProject.setAttribute('data-aos-duration', '800')
+  elemProject.setAttribute('data-aos-easing', 'ease-in-out')
+  elemProject.setAttribute('data-aos-offset', '-100')
+  elemProject.setAttribute('data-aos-delay', 300 * (index + 1))
+  
+  elemProject.classList.add('project')
 
-elemProject.classList.add('project')
+  // add imagem de capa
+  elemProject.appendChild(createImage(project.image, project.name))
 
-// adiciona imagem de capa
-elemProject.appendChild(createImage(projectImage))
+  // add nome do projeto
+  elemProject.appendChild(createStrong(project.name))
 
-const elemStrong = document.createElement('strong')
-elemStrong.innerText = projectName
-//add nome do projeto
-elemProject.appendChild(createStrong(projectName))
+  // add tags do projeto
+  elemProject.appendChild(createTags(project.tags))
 
-
-// add tags do projeto
-elemProject.appendChild(createTags(projecTags))
-
-elemProjects.appendChild(elemProject)
-
-return elemProject
-
+  return elemProject
 }
 
-
-
-const loadProjects = (projects) =>{
-    projects.forEach(project => {
-        elemProjects.appendChild(createProject(project))
-    });
-
+const loadProjects = (projects) => {
+  projects.forEach((project, index) => {
+    elemProjects.appendChild(createProject(project, index))
+  });
 }
-
-
 
 fetch('./projects.json').then(response => response.json()).then(loadProjects)
