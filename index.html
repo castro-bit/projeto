@@ -13,12 +13,24 @@
 
     <script src="./scripts/index.js"></script>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Script AOS - Animações -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+   
+
 </head>
 
 <body>
     <div class="app">
 
-        <section class="card user">
+        <section
+         class="card user"
+         data-aos="fade-right"
+         data-aos-duration="800"
+         data-aos-easing="ease-in-out">
+            
             <picture>
                 <img src="./assets/eu.jpg" alt="">
             </picture>
@@ -40,72 +52,94 @@
             </div>
         </section>
 
-        <section class="card about">
+        <section 
+        class="card about"
+        data-aos="fade-left"
+      data-aos-duration="800"
+      data-aos-easing="ease-in-out">
+
             <h2 class="subtitle">Sobre</h2>
             <p>Olá, meu nome é Gabriel Castro. Sou estudante de Análise e Desenvolvimento de Sistemas e sempre fui apaixonado por tecnologia desde criança.</p>
                 
         </section>
 
-        <section class="card projects">
-            <h2 class="subtitle">Projetos</h2>
-            
-            <div id="project_content">
-                <a href="#" target="blank" class="project">
-                    <picture>
-                        <img src="./assets/preview.png" alt="">
-                    </picture>
+        <!--aqui onde é colocado os projetos-->
+        <section 
+        class="card projects"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-easing="ease-in-out"
+        >
 
-                    <strong>Criando um site para o Filme do Super Mario</strong>
-
-                    <div>
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>responsivo</span>
-                        
-                    </div>
-                </a>
-
-
-
-
-                <a href="#" target="blank" class="project">
-                    <picture>
-                        <img src="./assets/preview.png" alt="">
-                    </picture>
-
-                    <strong>Criando um site para o Filme do Super Mario</strong>
-
-                    <div>
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>responsivo</span>
-                        
-                    </div>
-                </a>
-
-
-
-
-
-
-                <a href="#" target="blank" class="project">
-                    <picture>
-                        <img src="./assets/preview.png" alt="">
-                    </picture>
-
-                    <strong>Criando um site para o Filme do Super Mario</strong>
-
-                    <div>
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>responsivo</span>
-                        
-                    </div>
-                </a>
-            </div>
         
-</section>
-</div>
+            
+        <h2 class="subtitle">Projetos</h2>
+        <div id="project__content">
+            <a href="#" target="blank" class="project">
+                <picture>
+                    <img src="./assets/projeto-disney-plus.png" alt="">
+                </picture>
+
+                <strong>Site Disney</strong>
+
+                <div>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>responsivo</span>
+                    
+                </div>
+            </a>
+
+
+
+
+            <a href="https://castro-bit.github.io/guardioesgalaxia/" target="blank" class="project">
+                <picture>
+                    <img src="./assets/projeto-guardioes.png" alt="">
+                </picture>
+
+                <strong>Site guardiões</strong>
+
+                <div>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>responsivo</span>
+                    
+                </div>
+            </a>
+
+
+
+
+
+
+            <a href=" https://castro-bit.github.io/landingPageMario/" target="blank" class="project">
+                <picture>
+                    <img src="./assets/preview.png" alt="">
+                </picture>
+
+                <strong>Criando um site para o Filme do Super Mario</strong>
+
+                <div>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>responsivo</span>
+                    
+                </div>
+            </a>
+        </div>
+        </div>
+            
+        </section>
+    </div>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init({ once: true })
+</script>
+
 
 </body>
 
